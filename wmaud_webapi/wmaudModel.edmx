@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WMAUDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="WMAUDModelStoreContainer">
+          <EntitySet Name="CAPTURAS_AUDITORIA" EntityType="WMAUDModel.Store.CAPTURAS_AUDITORIA" store:Type="Tables" store:Schema="dbo" store:Name="CAPTURAS_AUDITORIA">
+            <DefiningQuery>SELECT 
+      [CAPTURAS_AUDITORIA].[CORRELATIVO] AS [CORRELATIVO], 
+      [CAPTURAS_AUDITORIA].[TAG_ERROR] AS [TAG_ERROR], 
+      [CAPTURAS_AUDITORIA].[BARRA_ERROR] AS [BARRA_ERROR], 
+      [CAPTURAS_AUDITORIA].[OBSERVACION] AS [OBSERVACION], 
+      [CAPTURAS_AUDITORIA].[NOMBRE_FOTO] AS [NOMBRE_FOTO], 
+      [CAPTURAS_AUDITORIA].[TAG_CORREGIDO] AS [TAG_CORREGIDO], 
+      [CAPTURAS_AUDITORIA].[CODIGO_LOCAL] AS [CODIGO_LOCAL], 
+      [CAPTURAS_AUDITORIA].[USER_ERROR] AS [USER_ERROR]
+      FROM [dbo].[CAPTURAS_AUDITORIA] AS [CAPTURAS_AUDITORIA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USUARIO_AUDITORIA" EntityType="WMAUDModel.Store.USUARIO_AUDITORIA" store:Type="Tables" store:Schema="dbo" store:Name="USUARIO_AUDITORIA">
+            <DefiningQuery>SELECT 
+      [USUARIO_AUDITORIA].[NOMBRE_USUARIO] AS [NOMBRE_USUARIO], 
+      [USUARIO_AUDITORIA].[FECHA_PROCESO] AS [FECHA_PROCESO], 
+      [USUARIO_AUDITORIA].[TURNO] AS [TURNO], 
+      [USUARIO_AUDITORIA].[CODIGO_LOCAL] AS [CODIGO_LOCAL], 
+      [USUARIO_AUDITORIA].[RECEPCION] AS [RECEPCION]
+      FROM [dbo].[USUARIO_AUDITORIA] AS [USUARIO_AUDITORIA]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'WMAUD.dbo.CAPTURAS_AUDITORIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="CAPTURAS_AUDITORIA">
+          <Key>
+            <PropertyRef Name="CORRELATIVO" />
+            <PropertyRef Name="TAG_ERROR" />
+          </Key>
+          <Property Name="CORRELATIVO" Type="int" Nullable="false" />
+          <Property Name="TAG_ERROR" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BARRA_ERROR" Type="varchar" MaxLength="50" />
+          <Property Name="OBSERVACION" Type="nvarchar" MaxLength="200" />
+          <Property Name="NOMBRE_FOTO" Type="nvarchar" MaxLength="20" />
+          <Property Name="TAG_CORREGIDO" Type="nvarchar" MaxLength="50" />
+          <Property Name="CODIGO_LOCAL" Type="varchar" MaxLength="10" />
+          <Property Name="USER_ERROR" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'WMAUD.dbo.USUARIO_AUDITORIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="USUARIO_AUDITORIA">
+          <Key>
+            <PropertyRef Name="CODIGO_LOCAL" />
+            <PropertyRef Name="NOMBRE_USUARIO" />
+          </Key>
+          <Property Name="NOMBRE_USUARIO" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FECHA_PROCESO" Type="varchar" MaxLength="50" />
+          <Property Name="TURNO" Type="varchar" MaxLength="100" />
+          <Property Name="CODIGO_LOCAL" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="RECEPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WMAUDModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WMAUDEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CAPTURAS_AUDITORIA" EntityType="WMAUDModel.CAPTURAS_AUDITORIA" />
+          <EntitySet Name="USUARIO_AUDITORIA" EntityType="WMAUDModel.USUARIO_AUDITORIA" />
+        </EntityContainer>
+        <EntityType Name="CAPTURAS_AUDITORIA">
+          <Key>
+            <PropertyRef Name="CORRELATIVO" />
+            <PropertyRef Name="TAG_ERROR" />
+          </Key>
+          <Property Name="CORRELATIVO" Type="Int32" Nullable="false" />
+          <Property Name="TAG_ERROR" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BARRA_ERROR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="NOMBRE_FOTO" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="TAG_CORREGIDO" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CODIGO_LOCAL" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="USER_ERROR" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USUARIO_AUDITORIA">
+          <Key>
+            <PropertyRef Name="CODIGO_LOCAL" />
+            <PropertyRef Name="NOMBRE_USUARIO" />
+          </Key>
+          <Property Name="NOMBRE_USUARIO" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FECHA_PROCESO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TURNO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CODIGO_LOCAL" Type="String" MaxLength="10" Unicode="false" FixedLength="false" Nullable="false" />
+          <Property Name="RECEPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WMAUDModelStoreContainer" CdmEntityContainer="WMAUDEntities">
+          <EntitySetMapping Name="CAPTURAS_AUDITORIA">
+            <EntityTypeMapping TypeName="WMAUDModel.CAPTURAS_AUDITORIA">
+              <MappingFragment StoreEntitySet="CAPTURAS_AUDITORIA">
+                <ScalarProperty Name="CORRELATIVO" ColumnName="CORRELATIVO" />
+                <ScalarProperty Name="TAG_ERROR" ColumnName="TAG_ERROR" />
+                <ScalarProperty Name="BARRA_ERROR" ColumnName="BARRA_ERROR" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="NOMBRE_FOTO" ColumnName="NOMBRE_FOTO" />
+                <ScalarProperty Name="TAG_CORREGIDO" ColumnName="TAG_CORREGIDO" />
+                <ScalarProperty Name="CODIGO_LOCAL" ColumnName="CODIGO_LOCAL" />
+                <ScalarProperty Name="USER_ERROR" ColumnName="USER_ERROR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO_AUDITORIA">
+            <EntityTypeMapping TypeName="WMAUDModel.USUARIO_AUDITORIA">
+              <MappingFragment StoreEntitySet="USUARIO_AUDITORIA">
+                <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+                <ScalarProperty Name="FECHA_PROCESO" ColumnName="FECHA_PROCESO" />
+                <ScalarProperty Name="TURNO" ColumnName="TURNO" />
+                <ScalarProperty Name="CODIGO_LOCAL" ColumnName="CODIGO_LOCAL" />
+                <ScalarProperty Name="RECEPCION" ColumnName="RECEPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

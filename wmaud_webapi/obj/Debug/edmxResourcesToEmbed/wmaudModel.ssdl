@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WMAUDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WMAUDModelStoreContainer">
+    <EntitySet Name="CAPTURAS_AUDITORIA" EntityType="WMAUDModel.Store.CAPTURAS_AUDITORIA" store:Type="Tables" store:Schema="dbo" store:Name="CAPTURAS_AUDITORIA">
+      <DefiningQuery>SELECT 
+      [CAPTURAS_AUDITORIA].[CORRELATIVO] AS [CORRELATIVO], 
+      [CAPTURAS_AUDITORIA].[TAG_ERROR] AS [TAG_ERROR], 
+      [CAPTURAS_AUDITORIA].[BARRA_ERROR] AS [BARRA_ERROR], 
+      [CAPTURAS_AUDITORIA].[OBSERVACION] AS [OBSERVACION], 
+      [CAPTURAS_AUDITORIA].[NOMBRE_FOTO] AS [NOMBRE_FOTO], 
+      [CAPTURAS_AUDITORIA].[TAG_CORREGIDO] AS [TAG_CORREGIDO], 
+      [CAPTURAS_AUDITORIA].[CODIGO_LOCAL] AS [CODIGO_LOCAL], 
+      [CAPTURAS_AUDITORIA].[USER_ERROR] AS [USER_ERROR]
+      FROM [dbo].[CAPTURAS_AUDITORIA] AS [CAPTURAS_AUDITORIA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="USUARIO_AUDITORIA" EntityType="WMAUDModel.Store.USUARIO_AUDITORIA" store:Type="Tables" store:Schema="dbo" store:Name="USUARIO_AUDITORIA">
+      <DefiningQuery>SELECT 
+      [USUARIO_AUDITORIA].[NOMBRE_USUARIO] AS [NOMBRE_USUARIO], 
+      [USUARIO_AUDITORIA].[FECHA_PROCESO] AS [FECHA_PROCESO], 
+      [USUARIO_AUDITORIA].[TURNO] AS [TURNO], 
+      [USUARIO_AUDITORIA].[CODIGO_LOCAL] AS [CODIGO_LOCAL], 
+      [USUARIO_AUDITORIA].[RECEPCION] AS [RECEPCION]
+      FROM [dbo].[USUARIO_AUDITORIA] AS [USUARIO_AUDITORIA]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'WMAUD.dbo.CAPTURAS_AUDITORIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="CAPTURAS_AUDITORIA">
+    <Key>
+      <PropertyRef Name="CORRELATIVO" />
+      <PropertyRef Name="TAG_ERROR" />
+    </Key>
+    <Property Name="CORRELATIVO" Type="int" Nullable="false" />
+    <Property Name="TAG_ERROR" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BARRA_ERROR" Type="varchar" MaxLength="50" />
+    <Property Name="OBSERVACION" Type="nvarchar" MaxLength="200" />
+    <Property Name="NOMBRE_FOTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="TAG_CORREGIDO" Type="nvarchar" MaxLength="50" />
+    <Property Name="CODIGO_LOCAL" Type="varchar" MaxLength="10" />
+    <Property Name="USER_ERROR" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'WMAUD.dbo.USUARIO_AUDITORIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="USUARIO_AUDITORIA">
+    <Key>
+      <PropertyRef Name="NOMBRE_USUARIO" />
+    </Key>
+    <Property Name="NOMBRE_USUARIO" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="FECHA_PROCESO" Type="varchar" MaxLength="50" />
+    <Property Name="TURNO" Type="varchar" MaxLength="100" />
+    <Property Name="CODIGO_LOCAL" Type="varchar" MaxLength="10" />
+    <Property Name="RECEPCION" Type="varchar" MaxLength="100" />
+  </EntityType>
+</Schema>

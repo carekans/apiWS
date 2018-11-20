@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WMAUDModelStoreContainer" CdmEntityContainer="WMAUDEntities">
+    <EntitySetMapping Name="CAPTURAS_AUDITORIA">
+      <EntityTypeMapping TypeName="WMAUDModel.CAPTURAS_AUDITORIA">
+        <MappingFragment StoreEntitySet="CAPTURAS_AUDITORIA">
+          <ScalarProperty Name="CORRELATIVO" ColumnName="CORRELATIVO" />
+          <ScalarProperty Name="TAG_ERROR" ColumnName="TAG_ERROR" />
+          <ScalarProperty Name="BARRA_ERROR" ColumnName="BARRA_ERROR" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="NOMBRE_FOTO" ColumnName="NOMBRE_FOTO" />
+          <ScalarProperty Name="TAG_CORREGIDO" ColumnName="TAG_CORREGIDO" />
+          <ScalarProperty Name="CODIGO_LOCAL" ColumnName="CODIGO_LOCAL" />
+          <ScalarProperty Name="USER_ERROR" ColumnName="USER_ERROR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO_AUDITORIA">
+      <EntityTypeMapping TypeName="WMAUDModel.USUARIO_AUDITORIA">
+        <MappingFragment StoreEntitySet="USUARIO_AUDITORIA">
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="FECHA_PROCESO" ColumnName="FECHA_PROCESO" />
+          <ScalarProperty Name="TURNO" ColumnName="TURNO" />
+          <ScalarProperty Name="CODIGO_LOCAL" ColumnName="CODIGO_LOCAL" />
+          <ScalarProperty Name="RECEPCION" ColumnName="RECEPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

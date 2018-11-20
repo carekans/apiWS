@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SEIModelStoreContainer" CdmEntityContainer="SEIEntities">
+    <EntitySetMapping Name="ACFI_almacen">
+      <EntityTypeMapping TypeName="SEIModel.ACFI_almacen">
+        <MappingFragment StoreEntitySet="ACFI_almacen">
+          <ScalarProperty Name="alm_codigo" ColumnName="alm_codigo" />
+          <ScalarProperty Name="alm_nombre" ColumnName="alm_nombre" />
+          <ScalarProperty Name="alm_estado" ColumnName="alm_estado" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="fecha_revision" ColumnName="fecha_revision" />
+          <ScalarProperty Name="monto_revision" ColumnName="monto_revision" />
+          <ScalarProperty Name="tipoalm_codigo" ColumnName="tipoalm_codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACFI_articulo">
+      <EntityTypeMapping TypeName="SEIModel.ACFI_articulo">
+        <MappingFragment StoreEntitySet="ACFI_articulo">
+          <ScalarProperty Name="art_codigo" ColumnName="art_codigo" />
+          <ScalarProperty Name="art_nombre" ColumnName="art_nombre" />
+          <ScalarProperty Name="cat_codigo" ColumnName="cat_codigo" />
+          <ScalarProperty Name="art_precio" ColumnName="art_precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACFI_categoria">
+      <EntityTypeMapping TypeName="SEIModel.ACFI_categoria">
+        <MappingFragment StoreEntitySet="ACFI_categoria">
+          <ScalarProperty Name="cat_codigo" ColumnName="cat_codigo" />
+          <ScalarProperty Name="cat_nombre" ColumnName="cat_nombre" />
+          <ScalarProperty Name="cat_visible" ColumnName="cat_visible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACFI_equipos">
+      <EntityTypeMapping TypeName="SEIModel.ACFI_equipos">
+        <MappingFragment StoreEntitySet="ACFI_equipos">
+          <ScalarProperty Name="equipo_codigo" ColumnName="equipo_codigo" />
+          <ScalarProperty Name="alm_codigo" ColumnName="alm_codigo" />
+          <ScalarProperty Name="equipo_valor" ColumnName="equipo_valor" />
+          <ScalarProperty Name="art_codigo" ColumnName="art_codigo" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="usu_codigo" ColumnName="usu_codigo" />
+          <ScalarProperty Name="fecha_auditoria" ColumnName="fecha_auditoria" />
+          <ScalarProperty Name="estado_auditoria" ColumnName="estado_auditoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

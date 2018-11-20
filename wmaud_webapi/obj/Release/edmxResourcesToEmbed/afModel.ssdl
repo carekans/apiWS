@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SEIModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SEIModelStoreContainer">
+    <EntitySet Name="ACFI_almacen" EntityType="SEIModel.Store.ACFI_almacen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ACFI_articulo" EntityType="SEIModel.Store.ACFI_articulo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ACFI_categoria" EntityType="SEIModel.Store.ACFI_categoria" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ACFI_equipos" EntityType="SEIModel.Store.ACFI_equipos" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ACFI_almacen">
+    <Key>
+      <PropertyRef Name="alm_codigo" />
+    </Key>
+    <Property Name="alm_codigo" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="alm_nombre" Type="nvarchar" MaxLength="250" />
+    <Property Name="alm_estado" Type="numeric" />
+    <Property Name="fecha_modificacion" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_revision" Type="nvarchar" MaxLength="50" />
+    <Property Name="monto_revision" Type="numeric" />
+    <Property Name="tipoalm_codigo" Type="numeric" />
+  </EntityType>
+  <EntityType Name="ACFI_articulo">
+    <Key>
+      <PropertyRef Name="art_codigo" />
+    </Key>
+    <Property Name="art_codigo" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="art_nombre" Type="nvarchar" MaxLength="200" />
+    <Property Name="cat_codigo" Type="numeric" />
+    <Property Name="art_precio" Type="numeric" />
+  </EntityType>
+  <EntityType Name="ACFI_categoria">
+    <Key>
+      <PropertyRef Name="cat_codigo" />
+    </Key>
+    <Property Name="cat_codigo" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cat_nombre" Type="nvarchar" MaxLength="150" />
+    <Property Name="cat_visible" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ACFI_equipos">
+    <Key>
+      <PropertyRef Name="equipo_codigo" />
+    </Key>
+    <Property Name="equipo_codigo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="alm_codigo" Type="numeric" />
+    <Property Name="equipo_valor" Type="numeric" />
+    <Property Name="art_codigo" Type="numeric" />
+    <Property Name="fecha_ingreso" Type="nvarchar" MaxLength="50" />
+    <Property Name="usu_codigo" Type="numeric" />
+    <Property Name="fecha_auditoria" Type="date" />
+    <Property Name="estado_auditoria" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+</Schema>

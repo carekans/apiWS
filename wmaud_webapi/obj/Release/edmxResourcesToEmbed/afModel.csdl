@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SEIModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SEIEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ACFI_almacen" EntityType="SEIModel.ACFI_almacen" />
+    <EntitySet Name="ACFI_articulo" EntityType="SEIModel.ACFI_articulo" />
+    <EntitySet Name="ACFI_categoria" EntityType="SEIModel.ACFI_categoria" />
+    <EntitySet Name="ACFI_equipos" EntityType="SEIModel.ACFI_equipos" />
+  </EntityContainer>
+  <EntityType Name="ACFI_almacen">
+    <Key>
+      <PropertyRef Name="alm_codigo" />
+    </Key>
+    <Property Name="alm_codigo" Type="Decimal" Nullable="false" Precision="18" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="alm_nombre" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="alm_estado" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="fecha_modificacion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="fecha_revision" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="monto_revision" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="tipoalm_codigo" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ACFI_articulo">
+    <Key>
+      <PropertyRef Name="art_codigo" />
+    </Key>
+    <Property Name="art_codigo" Type="Decimal" Nullable="false" Precision="18" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="art_nombre" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="cat_codigo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="art_precio" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ACFI_categoria">
+    <Key>
+      <PropertyRef Name="cat_codigo" />
+    </Key>
+    <Property Name="cat_codigo" Type="Decimal" Nullable="false" Precision="18" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_nombre" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="cat_visible" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ACFI_equipos">
+    <Key>
+      <PropertyRef Name="equipo_codigo" />
+    </Key>
+    <Property Name="equipo_codigo" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="alm_codigo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="equipo_valor" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="art_codigo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="fecha_ingreso" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="usu_codigo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="fecha_auditoria" Type="DateTime" Precision="0" />
+    <Property Name="estado_auditoria" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+</Schema>

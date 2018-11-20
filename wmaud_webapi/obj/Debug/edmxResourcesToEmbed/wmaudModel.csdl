@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WMAUDModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WMAUDEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="CAPTURAS_AUDITORIA" EntityType="WMAUDModel.CAPTURAS_AUDITORIA" />
+    <EntitySet Name="USUARIO_AUDITORIA" EntityType="WMAUDModel.USUARIO_AUDITORIA" />
+  </EntityContainer>
+  <EntityType Name="CAPTURAS_AUDITORIA">
+    <Key>
+      <PropertyRef Name="CORRELATIVO" />
+      <PropertyRef Name="TAG_ERROR" />
+    </Key>
+    <Property Name="CORRELATIVO" Type="Int32" Nullable="false" />
+    <Property Name="TAG_ERROR" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BARRA_ERROR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OBSERVACION" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="NOMBRE_FOTO" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="TAG_CORREGIDO" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CODIGO_LOCAL" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="USER_ERROR" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="USUARIO_AUDITORIA">
+    <Key>
+      <PropertyRef Name="NOMBRE_USUARIO" />
+    </Key>
+    <Property Name="NOMBRE_USUARIO" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FECHA_PROCESO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="TURNO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="CODIGO_LOCAL" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="RECEPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>
