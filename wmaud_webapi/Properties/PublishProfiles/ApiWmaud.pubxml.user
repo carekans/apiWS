@@ -10,6 +10,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
   <ItemGroup>
+    <File Include="afModel.Context.tt">
+      <publishTime>11/19/2018 09:50:58</publishTime>
+    </File>
+    <File Include="afModel.edmx.diagram">
+      <publishTime>11/19/2018 10:04:32</publishTime>
+    </File>
+    <File Include="afModel.tt">
+      <publishTime>11/19/2018 09:50:59</publishTime>
+    </File>
+    <File Include="Areas/RouteDebugger/Content/rdstyle.css">
+      <publishTime>11/19/2018 16:17:15</publishTime>
+    </File>
+    <File Include="Areas/RouteDebugger/Scripts/detect.js">
+      <publishTime>11/19/2018 16:17:15</publishTime>
+    </File>
+    <File Include="Areas/RouteDebugger/Views/RouteDebugger/Index.cshtml">
+      <publishTime>11/19/2018 16:17:15</publishTime>
+    </File>
+    <File Include="Areas/RouteDebugger/Views/Web.config">
+      <publishTime>11/19/2018 16:17:15</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>11/09/2018 09:13:13</publishTime>
     </File>
@@ -26,7 +47,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 12:12:08</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>11/09/2018 09:13:06</publishTime>
+      <publishTime>11/19/2018 16:16:41</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
       <publishTime>11/09/2018 12:12:08</publishTime>
@@ -35,7 +56,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 12:12:08</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>11/09/2018 09:13:07</publishTime>
+      <publishTime>11/19/2018 16:16:41</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>11/09/2018 09:13:12</publishTime>
@@ -44,22 +65,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 09:13:10</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>11/09/2018 09:13:05</publishTime>
+      <publishTime>11/19/2018 16:16:41</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>11/09/2018 09:13:06</publishTime>
+      <publishTime>11/19/2018 16:16:41</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>11/09/2018 09:13:06</publishTime>
+      <publishTime>11/19/2018 16:16:41</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>11/09/2018 09:13:06</publishTime>
+      <publishTime>11/19/2018 16:16:41</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>11/09/2018 09:13:13</publishTime>
     </File>
     <File Include="bin/wmaud_webapi.dll">
-      <publishTime>11/13/2018 17:49:00</publishTime>
+      <publishTime>11/21/2018 11:12:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap-responsive.css">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap-responsive.min.css">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Content/images/glyphicons-halflings-white.png">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Content/images/glyphicons-halflings.png">
+      <publishTime>11/19/2018 16:17:08</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>11/09/2018 09:11:38</publishTime>
@@ -272,13 +311,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 09:11:38</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/09/2018 12:12:18</publishTime>
+      <publishTime>11/19/2018 16:17:16</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>11/19/2018 16:17:08</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.js">
       <publishTime>11/09/2018 09:12:50</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.min.js">
       <publishTime>11/09/2018 09:12:50</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.3.js">
+      <publishTime>11/19/2018 16:17:05</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.3.min.js">
+      <publishTime>11/19/2018 16:17:05</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.js">
       <publishTime>11/09/2018 09:12:59</publishTime>
@@ -310,14 +361,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/knockout-2.1.0.js">
       <publishTime>11/09/2018 09:13:13</publishTime>
     </File>
+    <File Include="Scripts/knockout-2.2.1.debug.js">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.1.js">
+      <publishTime>11/19/2018 16:17:08</publishTime>
+    </File>
     <File Include="Scripts/modernizr-2.5.3.js">
       <publishTime>11/09/2018 09:13:04</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>11/09/2018 09:12:56</publishTime>
+      <publishTime>11/19/2018 16:17:07</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/09/2018 09:11:38</publishTime>
+      <publishTime>11/21/2018 08:50:53</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>11/09/2018 09:11:38</publishTime>
@@ -332,7 +389,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 09:11:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/13/2018 17:51:09</publishTime>
+      <publishTime>11/21/2018 11:12:43</publishTime>
+    </File>
+    <File Include="Web.config.install.xdt">
+      <publishTime>11/19/2018 16:17:14</publishTime>
+    </File>
+    <File Include="Web.config.uninstall.xdt">
+      <publishTime>11/19/2018 16:17:14</publishTime>
     </File>
     <File Include="wmaudModel.Context.tt">
       <publishTime>11/09/2018 10:23:57</publishTime>

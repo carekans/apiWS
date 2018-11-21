@@ -25,133 +25,116 @@ namespace wmaud_webapi.Models
 
             if (string.IsNullOrEmpty(fechaInicio))
             {
-                foreach (var resultAU in model.USUARIO_AUDITORIA)
+                var query = (from ca in model.CAPTURAS_AUDITORIA
+                                join ua  in model.USUARIO_AUDITORIA on ca.CODIGO_LOCAL equals ua.CODIGO_LOCAL
+                                select new
+                                {
+                                    FECHA_PROCESO = ua.FECHA_PROCESO,
+                                    NOMBRE_USUARIO = ua.NOMBRE_USUARIO,
+                                    TURNO = ua.TURNO,
+                                    RECEPCION = ua.RECEPCION,
+                                    correlativo = ca.CORRELATIVO,
+                                    tag_error = ca.TAG_ERROR,
+                                    barra_error = ca.BARRA_ERROR,
+                                    observacion = ca.OBSERVACION,
+                                    nombre_foto = ca.NOMBRE_FOTO,
+                                    tag_corregido = ca.TAG_CORREGIDO,
+                                    user_error = ca.USER_ERROR
+                                }
+                            );
+                foreach (var resultCA in query)
                 {
-                    string codigoLocal = resultAU.CODIGO_LOCAL;
-                    var query = (from ca in model.CAPTURAS_AUDITORIA
-                                 where ca.CODIGO_LOCAL == codigoLocal
-                                 select new
-                                 {
-                                     correlativo = ca.CORRELATIVO,
-                                     tag_error = ca.TAG_ERROR,
-                                     barra_error = ca.BARRA_ERROR,
-                                     observacion = ca.OBSERVACION,
-                                     nombre_foto = ca.NOMBRE_FOTO,
-                                     tag_corregido = ca.TAG_CORREGIDO,
-                                     user_error = ca.USER_ERROR
-                                 });
-                    foreach (var resultCA in query)
+                    res.Add(JsonConvert.SerializeObject(new
                     {
-                        res.Add(JsonConvert.SerializeObject(new
-                        {
-                            FechaProceso = resultAU.FECHA_PROCESO,
-                            NombreUsuario = resultAU.NOMBRE_USUARIO,
-                            Turno = resultAU.TURNO,
-                            Preparacion = resultAU.RECEPCION,
-                            Correlativo = resultCA.correlativo,
-                            TagError = resultCA.tag_error,
-                            UserError = resultCA.user_error,
-                            BarraError = resultCA.barra_error,
-                            Observacion = resultCA.observacion,
-                            NombreFoto = resultCA.nombre_foto,
-                            TagCorregido = resultCA.tag_corregido
-                        }));
-                    }
+                        FechaProceso = resultCA.FECHA_PROCESO,
+                        NombreUsuario = resultCA.NOMBRE_USUARIO,
+                        Turno = resultCA.TURNO,
+                        Preparacion = resultCA.RECEPCION,
+                        Correlativo = resultCA.correlativo,
+                        TagError = resultCA.tag_error,
+                        UserError = resultCA.user_error,
+                        BarraError = resultCA.barra_error,
+                        Observacion = resultCA.observacion,
+                        NombreFoto = resultCA.nombre_foto,
+                        TagCorregido = resultCA.tag_corregido
+                    }));
                 }
             }
             else if (string.IsNullOrEmpty(recepcion))
             {
-                var queryUA = (from ua in model.USUARIO_AUDITORIA
-                             where ua.FECHA_PROCESO == fechaInicio
-                             select new
-                             {
-                                 NOMBRE_USUARIO = ua.NOMBRE_USUARIO,
-                                 FECHA_PROCESO = ua.FECHA_PROCESO,
-                                 TURNO = ua.TURNO,
-                                 CODIGO_LOCAL = ua.CODIGO_LOCAL,
-                                 RECEPCION = ua.RECEPCION
-                             });
-
-                foreach (var resultAU in queryUA)
+                var query = (from ca in model.CAPTURAS_AUDITORIA
+                                join ua in model.USUARIO_AUDITORIA on ca.CODIGO_LOCAL equals ua.CODIGO_LOCAL
+                                where ua.FECHA_PROCESO == fechaInicio
+                                select new
+                                {
+                                    FECHA_PROCESO = ua.FECHA_PROCESO,
+                                    NOMBRE_USUARIO = ua.NOMBRE_USUARIO,
+                                    TURNO = ua.TURNO,
+                                    RECEPCION = ua.RECEPCION,
+                                    correlativo = ca.CORRELATIVO,
+                                    tag_error = ca.TAG_ERROR,
+                                    barra_error = ca.BARRA_ERROR,
+                                    observacion = ca.OBSERVACION,
+                                    nombre_foto = ca.NOMBRE_FOTO,
+                                    tag_corregido = ca.TAG_CORREGIDO,
+                                    user_error = ca.USER_ERROR
+                                }
+                            );
+                foreach (var resultCA in query)
                 {
-                    string codigoLocal = resultAU.CODIGO_LOCAL;
-                    var query = (from ca in model.CAPTURAS_AUDITORIA
-                                 where ca.CODIGO_LOCAL == codigoLocal
-                                 select new
-                                 {
-                                     correlativo = ca.CORRELATIVO,
-                                     tag_error = ca.TAG_ERROR,
-                                     barra_error = ca.BARRA_ERROR,
-                                     observacion = ca.OBSERVACION,
-                                     nombre_foto = ca.NOMBRE_FOTO,
-                                     tag_corregido = ca.TAG_CORREGIDO,
-                                     user_error = ca.USER_ERROR
-                                 });
-                    foreach (var resultCA in query)
+                    res.Add(JsonConvert.SerializeObject(new
                     {
-                        res.Add(JsonConvert.SerializeObject(new
-                        {
-                            FechaProceso = resultAU.FECHA_PROCESO,
-                            NombreUsuario = resultAU.NOMBRE_USUARIO,
-                            Turno = resultAU.TURNO,
-                            Preparacion = resultAU.RECEPCION,
-                            Correlativo = resultCA.correlativo,
-                            TagError = resultCA.tag_error,
-                            UserError = resultCA.user_error,
-                            BarraError = resultCA.barra_error,
-                            Observacion = resultCA.observacion,
-                            NombreFoto = resultCA.nombre_foto,
-                            TagCorregido = resultCA.tag_corregido
-                        }));
-                    }
+                        FechaProceso = resultCA.FECHA_PROCESO,
+                        NombreUsuario = resultCA.NOMBRE_USUARIO,
+                        Turno = resultCA.TURNO,
+                        Preparacion = resultCA.RECEPCION,
+                        Correlativo = resultCA.correlativo,
+                        TagError = resultCA.tag_error,
+                        UserError = resultCA.user_error,
+                        BarraError = resultCA.barra_error,
+                        Observacion = resultCA.observacion,
+                        NombreFoto = resultCA.nombre_foto,
+                        TagCorregido = resultCA.tag_corregido
+                    }));
                 }
             }
             else
             {
-                var queryUA = (from ua in model.USUARIO_AUDITORIA
-                               where ua.FECHA_PROCESO == fechaInicio
-                               where ua.RECEPCION == recepcion
-                               select new
-                               {
-                                   NOMBRE_USUARIO = ua.NOMBRE_USUARIO,
-                                   FECHA_PROCESO = ua.FECHA_PROCESO,
-                                   TURNO = ua.TURNO,
-                                   CODIGO_LOCAL = ua.CODIGO_LOCAL,
-                                   RECEPCION = ua.RECEPCION
-                               });
-
-                foreach (var resultAU in queryUA)
+                var query = (from ca in model.CAPTURAS_AUDITORIA
+                                join ua in model.USUARIO_AUDITORIA on ca.CODIGO_LOCAL equals ua.CODIGO_LOCAL
+                                where ua.FECHA_PROCESO == fechaInicio
+                                where ua.RECEPCION == recepcion
+                                select new
+                                {
+                                    FECHA_PROCESO = ua.FECHA_PROCESO,
+                                    NOMBRE_USUARIO = ua.NOMBRE_USUARIO,
+                                    TURNO = ua.TURNO,
+                                    RECEPCION = ua.RECEPCION,
+                                    correlativo = ca.CORRELATIVO,
+                                    tag_error = ca.TAG_ERROR,
+                                    barra_error = ca.BARRA_ERROR,
+                                    observacion = ca.OBSERVACION,
+                                    nombre_foto = ca.NOMBRE_FOTO,
+                                    tag_corregido = ca.TAG_CORREGIDO,
+                                    user_error = ca.USER_ERROR
+                                }
+                            );
+                foreach (var resultCA in query)
                 {
-                    string codigoLocal = resultAU.CODIGO_LOCAL;
-                    var query = (from ca in model.CAPTURAS_AUDITORIA
-                                 where ca.CODIGO_LOCAL == codigoLocal
-                                 select new
-                                 {
-                                     correlativo = ca.CORRELATIVO,
-                                     tag_error = ca.TAG_ERROR,
-                                     barra_error = ca.BARRA_ERROR,
-                                     observacion = ca.OBSERVACION,
-                                     nombre_foto = ca.NOMBRE_FOTO,
-                                     tag_corregido = ca.TAG_CORREGIDO,
-                                     user_error = ca.USER_ERROR
-                                 });
-                    foreach (var resultCA in query)
+                    res.Add(JsonConvert.SerializeObject(new
                     {
-                        res.Add(JsonConvert.SerializeObject(new
-                        {
-                            FechaProceso = resultAU.FECHA_PROCESO,
-                            NombreUsuario = resultAU.NOMBRE_USUARIO,
-                            Turno = resultAU.TURNO,
-                            Preparacion = resultAU.RECEPCION,
-                            Correlativo = resultCA.correlativo,
-                            TagError = resultCA.tag_error,
-                            UserError = resultCA.user_error,
-                            BarraError = resultCA.barra_error,
-                            Observacion = resultCA.observacion,
-                            NombreFoto = resultCA.nombre_foto,
-                            TagCorregido = resultCA.tag_corregido
-                        }));
-                    }
+                        FechaProceso = resultCA.FECHA_PROCESO,
+                        NombreUsuario = resultCA.NOMBRE_USUARIO,
+                        Turno = resultCA.TURNO,
+                        Preparacion = resultCA.RECEPCION,
+                        Correlativo = resultCA.correlativo,
+                        TagError = resultCA.tag_error,
+                        UserError = resultCA.user_error,
+                        BarraError = resultCA.barra_error,
+                        Observacion = resultCA.observacion,
+                        NombreFoto = resultCA.nombre_foto,
+                        TagCorregido = resultCA.tag_corregido
+                    }));
                 }
             }
 
