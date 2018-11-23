@@ -34,5 +34,11 @@ namespace wmaud_webapi.Controllers
             var obtenerAF = new obtAF();
             return Json(obtenerAF.dataAF(Int32.Parse(codigo),Int32.Parse(categoria)));
         }
+        [Route("api/activofijo/getxnombre/{nombre}")]
+        public IHttpActionResult GetXNombre(string nombre)
+        {
+            var obtenerAF = new obtAF();
+            return Json(obtenerAF.GetXNombre(nombre));
+        }
     }
 }

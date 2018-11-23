@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace wmaud_webapi.Models
@@ -155,6 +157,86 @@ namespace wmaud_webapi.Models
                         }
                     ));
                 }
+            }
+
+            string json = JsonConvert.SerializeObject(resAF, Newtonsoft.Json.Formatting.None);
+            string resultado = json.Replace("\\", "");
+            resultado = resultado.Replace("[\"", "[");
+            resultado = resultado.Replace("}\",\"{", "},{");
+
+            return resultado.Replace("\"]", "]");
+        }
+        public string GetXNombre(string nombre)
+        {
+
+            var modelAF = new SEIEntities();
+            List<string> resAF = new List<string>();
+
+            var queryEquipos = (from equipo in modelAF.ACFI_equipos
+                                join almacen in modelAF.ACFI_almacen on equipo.alm_codigo equals almacen.alm_codigo
+                                join articulos in modelAF.ACFI_articulo on equipo.art_codigo equals articulos.art_codigo
+                                join categoria in modelAF.ACFI_categoria on articulos.cat_codigo equals categoria.cat_codigo
+                                where String.Compare(nombre, almacen.alm_nombre, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase) == 0
+                                where articulos.cat_codigo == 4
+                                group equipo.alm_codigo by new
+                                {
+                                    alm_codigo = almacen.alm_codigo,
+                                    alm_nombre = almacen.alm_nombre,
+                                    cat_codigo = categoria.cat_codigo,
+                                    cat_nombre = categoria.cat_nombre
+                                }
+                                into equip
+                                orderby equip.Key.alm_codigo ascending
+                                select new
+                                {
+                                    alm_codigo = equip.Key.alm_codigo,
+                                    alm_nombre = equip.Key.alm_nombre,
+                                    cat_codigo = equip.Key.cat_codigo,
+                                    cat_nombre = equip.Key.cat_nombre,
+                                    cant = equip.Count()
+                                }
+                    );
+
+            var queryDisponibles = (from equipo in modelAF.ACFI_equipos
+                                join almacen in modelAF.ACFI_almacen on equipo.alm_codigo equals almacen.alm_codigo
+                                join articulos in modelAF.ACFI_articulo on equipo.art_codigo equals articulos.art_codigo
+                                join categoria in modelAF.ACFI_categoria on articulos.cat_codigo equals categoria.cat_codigo
+                                where equipo.alm_codigo == 24
+                                where articulos.cat_codigo == 4
+                                group equipo.alm_codigo by new
+                                {
+                                    alm_codigo = almacen.alm_codigo,
+                                    alm_nombre = almacen.alm_nombre,
+                                    cat_codigo = categoria.cat_codigo,
+                                    cat_nombre = categoria.cat_nombre
+                                }
+                                    into equip
+                                    orderby equip.Key.alm_codigo ascending
+                                    select new
+                                    {
+                                        alm_codigo = equip.Key.alm_codigo,
+                                        alm_nombre = equip.Key.alm_nombre,
+                                        cat_codigo = equip.Key.cat_codigo,
+                                        cat_nombre = equip.Key.cat_nombre,
+                                        cant = equip.Count()
+                                    }
+                    );
+
+            foreach (var resultDisponibles in queryDisponibles)
+            {
+                foreach (var resultequipos in queryEquipos)
+                {
+                    resAF.Add(JsonConvert.SerializeObject(new
+                    {
+                        alm_codigo = resultequipos.alm_codigo,
+                        alm_nombre = resultequipos.alm_nombre,
+                        cat_codigo = resultequipos.cat_codigo,
+                        cat_nombre = resultequipos.cat_nombre,
+                        cantidad = resultequipos.cant,
+                        enBodega= resultDisponibles.cant
+                    }
+                    ));
+                }                
             }
 
             string json = JsonConvert.SerializeObject(resAF, Newtonsoft.Json.Formatting.None);
