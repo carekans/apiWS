@@ -29,6 +29,9 @@ namespace wmaud_webapi.Controllers{
             var obtenerAF = new obtAF();
             return Json(obtenerAF.dataAF(Int32.Parse(codigo),Int32.Parse(categoria)));
         }
+        //Metodo Get que expone los datos filtrados por nombre de lider/almacen
+        //El formato de el nombre debe ser {[nombre][" "][apellido]}
+        //api/activofijo/getxnombre/{nombre}
         [Route("api/activofijo/getxnombre/{nombre}")]
         public IHttpActionResult GetXNombre(string nombre){
             var obtenerAF = new obtAF();

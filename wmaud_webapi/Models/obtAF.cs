@@ -149,14 +149,17 @@ namespace wmaud_webapi.Models{
 
             return resultado.Replace("\"]", "]");
         }
-
+        //Funcion encargada de buscar la cantidad se PDA que posee un lider ademas devuelte el total de las PDA disponibles en bodega
+        //la busqueda se realiza en base al nombre de el almacen que corresponde al nombre de el lider espacio apellido paterno
+        //la funcion sola hace la comparacion independiente de mayusculas o acentos que pueda contener el nombre
         public string GetXNombre(string nombre){
 
             var modelAF = new SEIEntities();
             List<string> resAF = new List<string>();
 
             int codAlmacen = 0;
-
+            //Debido a que linq no interpreta la comparacion de acentos para buscar el almacen primero se listan y se realiza el recorrido
+            //por cada uno comparando el nombre para poder obtener el codigo de el almacen y asi realizar la condicion en la consulta en base al codigo
             foreach (var almacenList in modelAF.ACFI_almacen){
                 if (String.Compare(nombre, almacenList.alm_nombre, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase) == 0){
                     codAlmacen = (int) almacenList.alm_codigo;

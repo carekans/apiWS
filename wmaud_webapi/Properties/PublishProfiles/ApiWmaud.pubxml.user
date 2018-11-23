@@ -80,7 +80,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 09:13:13</publishTime>
     </File>
     <File Include="bin/wmaud_webapi.dll">
-      <publishTime>11/23/2018 17:56:24</publishTime>
+      <publishTime>11/23/2018 18:10:26</publishTime>
     </File>
     <File Include="Content/bootstrap-responsive.css">
       <publishTime>11/19/2018 16:17:08</publishTime>
@@ -389,7 +389,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2018 09:11:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/23/2018 17:57:56</publishTime>
+      <publishTime>11/23/2018 18:11:16</publishTime>
     </File>
     <File Include="Web.config.install.xdt">
       <publishTime>11/19/2018 16:17:14</publishTime>
